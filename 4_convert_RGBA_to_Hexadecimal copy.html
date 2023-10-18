@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1920" height="1080"></canvas>
+    <script>
+        const rgbaToHex = (r, g, b) => "#" + [r, g, b].map(num => parseInt(num).toString(16).padStart(2, '0')).join('')
+        console.log(rgbaToHex(Math.random()*255, Math.random()*255 ,Math.random()*255))
+
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+
+        var x = -10; 
+        var y = -10; 
+        var width = 1920;
+        var height = 1080;
+        var fillColor = rgbaToHex(Math.random()*255, Math.random()*255 ,Math.random()*255); 
+
+        // Set the fill color
+        context.fillStyle = fillColor;
+
+        // Draw the rectangle
+        context.fillStyle(x, y, width, height);
+    </script>
+</body>
+</html>

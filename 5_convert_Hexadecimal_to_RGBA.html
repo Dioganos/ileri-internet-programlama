@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1920" height="1080"></canvas>
+    <script>
+
+        function getRandomHex(length) {
+        const characters = '0123456789ABCDEF';
+        let hex = '#';
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            hex += characters[randomIndex];
+        }
+        return hex;
+        }
+        
+        const hexToRgba = hex => {
+        const [r, g, b] = hex.match(/\w\w/g).map(val => parseInt(val, 16))
+        return `rgba(${r}, ${g}, ${b}, 1)`;
+        }
+
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+
+        var x = -10; 
+        var y = -10; 
+        var width = 1920;
+        var height = 1080;
+        const randomhex = getRandomHex(6);
+        console.log(randomhex);
+        var fillColor = hexToRgba(randomhex);
+
+        // Set the fill color
+        context.fillStyle = fillColor;
+
+        // Draw the rectangle
+        context.fillRect(x, y, width, height);
+    </script>
+</body>
+</html>

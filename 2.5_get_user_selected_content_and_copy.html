@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Selam dünyaaa</p>
+    <script>
+        function getSelectedText(){
+            const selectedText = window.getSelection().toString();
+            if(selectedText){
+                navigator.clipboard.writeText(selectedText)
+                .then(() => {
+                    console.log('Text copied to clipboard : ' + selectedText);
+                })
+                .catch(err => {
+                    console.error('Copy attempt denied!' + err);
+                });
+            }
+        } 
+        
+
+        document.addEventListener("selectionchange", () => {
+            getSelectedText();
+        });
+    </script>
+</body>
+</html>
